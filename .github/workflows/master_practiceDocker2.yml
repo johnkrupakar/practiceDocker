@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://practicedocker.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_d041524f169f4511af8377f351478177 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_75250e45de9946e1ace007f4857f5aa4 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_1f912d88a3134386aab0fe3123c85c91 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_f5537762a16040a58fcf4260203c63b7 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: practicedocker.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_d041524f169f4511af8377f351478177 }}/practice:${{ github.sha }}
+        tags: practicedocker.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_1f912d88a3134386aab0fe3123c85c91 }}/practice:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'practiceDocker2'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_e475723746ab40738b6d9daa48a04cbc }}
-        images: 'practicedocker.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_d041524f169f4511af8377f351478177 }}/practice:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_5066470020474acb92de061f411e5e70 }}
+        images: 'practicedocker.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_1f912d88a3134386aab0fe3123c85c91 }}/practice:${{ github.sha }}'
