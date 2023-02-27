@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: practicedocker.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_85fc55b31d594ff6be411af4d1e89e80 }}/practice:${{ github.sha }}
+        tags: practicedocker.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_85fc55b31d594ff6be411af4d1e89e80 }}/practice:${{ github.sha }}.Lowercase
         file: ./Dockerfile
 
   deploy:
